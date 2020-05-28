@@ -203,6 +203,9 @@ export default class MUIPlacesAutocomplete extends React.Component {
           return
         }
 
+        if (this.props.preprocessPredictions)
+          predictions = this.props.preprocessPredictions(predictions);
+
         this.setState({ suggestions: predictions })
       },
     )
