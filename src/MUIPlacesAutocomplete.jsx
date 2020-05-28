@@ -85,13 +85,13 @@ export default class MUIPlacesAutocomplete extends React.Component {
                 <MenuList>
                   {renderedSuggestions}
                   {renderedSuggestions.length > 0
-                      ? (
-                        <div style={{ display: 'flex' }}>
-                          <span style={{ flex: 1 }} />
-                          <img src={googleLogo} alt="" />
-                        </div>
-                        )
-                      : null}
+                    ? (
+                      <div style={{ display: 'flex' }}>
+                        <span style={{ flex: 1 }} />
+                        <img src={googleLogo} alt="" />
+                      </div>
+                    )
+                    : null}
                 </MenuList>
               </Paper>
             </Grow>
@@ -247,10 +247,10 @@ export default class MUIPlacesAutocomplete extends React.Component {
           <TextField {...getInputProps({ id: 'mui-places-autocomplete-input', ...textFieldProps })} />
           <Target>{renderTarget()}</Target>
           {isOpen ? MUIPlacesAutocomplete.renderSuggestionsContainer(
-                      suggestions,
-                      { getItemProps, inputValue, highlightedIndex },
-                      )
-                  : null}
+            suggestions,
+            { getItemProps, inputValue, highlightedIndex },
+          )
+            : null}
         </Manager>
       </div>
     )
@@ -262,7 +262,7 @@ export default class MUIPlacesAutocomplete extends React.Component {
     // <input> elements state to the consumer.
     const controlProps = this.props.textFieldProps && this.props.textFieldProps.value ?
       { inputValue: this.props.textFieldProps.value } :
-      { }
+      {}
 
     return (
       <Downshift
@@ -271,6 +271,7 @@ export default class MUIPlacesAutocomplete extends React.Component {
         itemToString={suggestion => (suggestion ? suggestion.description : '')}
         render={this.renderAutocomplete}
         {...controlProps}
+        {...this.props.downshiftProps}
       />
     )
   }
