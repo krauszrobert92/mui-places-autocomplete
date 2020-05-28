@@ -614,6 +614,8 @@ var MUIPlacesAutocomplete = function (_React$Component) {
           return;
         }
 
+        if (_this2.props.preprocessPredictions) predictions = _this2.props.preprocessPredictions(predictions);
+
         _this2.setState({ suggestions: predictions });
       });
     }
